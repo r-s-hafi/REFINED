@@ -4,7 +4,9 @@ from fastapi.requests import Request
 from fastapi.templating import Jinja2Templates
 import sqlite3
 
-from database import initialize_db, import_data
+import plotly.express as p
+
+from database import initialize_db, get_tag_data
 
 #create the fastapi instance, Jinja2 templates to return HTML, and initialize database
 app = FastAPI()
@@ -21,4 +23,9 @@ async def initialize(request: Request) -> HTMLResponse:
 @app.post("/get-tag-id")
 async def get_tag_id(request: Request, tag_id: str = Form()) -> HTMLResponse:
    print(tag_id)
-   return templates.TemplateResponse(request, "index.html", {"tag_id": tag_id})
+   get_tag_data(con, tag_id)
+
+   return HTMLResponse(f"""
+                        <h1>Plotting data for tag {tag_id}</h1>
+                        <div id="plot"></div>
+                        """)

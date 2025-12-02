@@ -29,7 +29,7 @@ REFINED/
 └── README.md 
 
 Current status:
-Last updated: 12/01/2025 21:11
+Last updated: 12/02/2025 07:32
 
 Completed:
 Wrote functionality to read .csv sample file into SQL database using pandas dataframe

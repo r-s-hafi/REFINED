@@ -1,6 +1,6 @@
 from sqlite3 import Connection
-import csv
 import pandas as pd
+from fastapi.responses import HTMLResponse
 
 def initialize_db(con: Connection) -> None:
     try:
@@ -18,4 +18,8 @@ def initialize_db(con: Connection) -> None:
 
     except Exception as e:
         print(f"Unable to import data: {e}")
+
+
+def get_tag_data(tag_id: str, con: Connection) -> HTMLResponse:
+
 
