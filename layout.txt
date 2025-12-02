@@ -1,4 +1,4 @@
-Untitled project (Mini seeq clone)
+REFINED (Mini seeq clone)
 
 Functionality:
 Upload real-time process data into program using multiple tags
@@ -10,7 +10,7 @@ User uploads CSV file with timestamps and values for individual tags -> insert d
 
 To do:
 Build system
-Ask chat for CSV generated with 3 tags
+Build script to generate pseudo process data
 Build script to read data into python
 
 Stack:
@@ -19,7 +19,7 @@ Frontend - HTMX/HTML/Tailwind/CSS
 Database - SQLite
 Plotting - Plotly
 
-ProcessPulse/
+REFINED/
 ├── app.py                      # FastAPI app
 ├── database.py                 # SQLite functions
 ├── generate_sample_data.py     # Sample data generator
@@ -27,3 +27,14 @@ ProcessPulse/
 ├── templates/
 │   └── index.html              # Main page
 └── README.md 
+
+Current status:
+Last updated: 12/01/2025 21:11
+
+Completed:
+Wrote functionality to read .csv sample file into SQL database using pandas dataframe
+Wrote rudimentary HTMX to receive and pass to /get-tag-id endpoint to fetch data and plot
+
+Next steps:
+Write fxn to read sql database for tag id and collect data
+Pass that data to plotly to create interactive charts
