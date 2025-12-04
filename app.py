@@ -22,7 +22,6 @@ async def initialize(request: Request) -> HTMLResponse:
 
 @app.post("/get-tag-id")
 async def get_tag_id(request: Request, tag_id: str = Form()) -> HTMLResponse:
-   print(tag_id)
    get_tag_data(con, tag_id)
 
    return HTMLResponse(f"""

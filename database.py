@@ -1,6 +1,7 @@
 from sqlite3 import Connection
 import pandas as pd
 from fastapi.responses import HTMLResponse
+import plotly.express as px
 
 def initialize_db(con: Connection) -> None:
     try:
@@ -20,6 +21,9 @@ def initialize_db(con: Connection) -> None:
         print(f"Unable to import data: {e}")
 
 
-def get_tag_data(tag_id: str, con: Connection) -> HTMLResponse:
-
+def get_tag_data(con: Connection, tag_id: str) -> HTMLResponse:
+    tag_id = tag_id.upper()
+    df = pd.read_sql(f"SELECT Time, {tag_id} FROM process_data", con)
+    fig = px.line(df, x="Time", y=tag_id, title=f"{tag_id}", labels={'Time': 'Time', tag_id: 'Value'})
+    fig.show()              
 
