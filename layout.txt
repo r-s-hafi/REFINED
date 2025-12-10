@@ -41,6 +41,8 @@ Store html for each plot as a separate column within the database
 When returning html, find all of the tags in the list of current tags and find their database html
 
 Next steps:
+****Actually go back and remove the html database, so much bloat for no reason
+****Just loop through each tag_id and regenerate the html, plotly is fast enough
 Setup rudimentary flexbox grid for multiple charts
 Figure out how to keep HTML static for unaffected plots but add/remove new/old ones
 Write program to generate CSV with more data
